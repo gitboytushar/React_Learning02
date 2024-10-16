@@ -7,3 +7,5 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   App()
 )
+
+// <strictmode> tag is used for production level purposes
