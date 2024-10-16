@@ -1,22 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
 
-const App = () => {
-  let user = 'Tushar'
-
-  const abc = () => {
-    console.log('button clicked')
-  }
-
-  const change_name = () => {
-    console.log(user)
-    user = 'Aryan'
-    console.log(user)
-  }
+function App () {
+  const [num, setNum] = useState(0)
 
   return (
     <div>
-      <h1>hello {user}</h1>
-      <button onClick={change_name}>Change Name</button>
+      <h3>Number is = {num}</h3>
+      <button onClick={() => setNum(num + 10)}>Increment by 10</button>
+      <button onClick={() => setNum(num - 5)}>Decrement by 5</button>
     </div>
   )
 }
