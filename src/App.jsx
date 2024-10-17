@@ -1,23 +1,27 @@
 import React, { useState } from 'react'
 
-function App() {
-  const [num, setNum] = useState(0)
+// learn form handling with react
 
-  function checkNumValue() {
-    if (num <= 0) {
-      alert("Number cannot be decreased further!!!");
-    } else {
-      setNum(num - 10);
-    }
+const App = () => {
+  const [username, setUsername] = useState('')
+
+  const submitHandler = (e) => {
+    e.preventDefault() // used to stop default behaivour of form i.e; loading after submit
+    console.log(username) // print the input value on console
+    setUsername('') // after getting the value empty the input field
   }
 
   return (
     <div>
-      <h3 className='text-8xl text-center'>Number is {num}</h3>
-      <div className='flex align-middle justify-center gap-5 mt-5'>
-        <button onClick={() => setNum(num + 10)}>Increment by 10</button>
-        <button onClick={checkNumValue}>Decrement by 10</button>
-      </div>
+      <form className='flex items-center justify-center gap-x-5' onSubmit={e => submitHandler(e)}>
+        <input
+          value={username} // getting the value from the browser
+          onChange={(e) => {
+            setUsername(e.target.value); // change value and state of the username
+          }}
+          className='px-4 py-2 bg-white text-black rounded' type="text" placeholder="Enter your name" />
+        <button className='px-4 py-2 bg-emerald-600 rounded'>Submit</button>
+      </form>
     </div>
   )
 }
