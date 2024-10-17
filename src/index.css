@@ -8,32 +8,8 @@
   box-sizing: border-box;
 
   color: #fff;
-  background-color: #000;
 }
 
-html,
-body {
-  scroll-behavior: smooth;
+body{
+  background-color: black;
 }
-
-body {
-  margin: 200px;
-  font-size: 20px;
-}
-
-/* button {
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  background-color: rgba(52, 52, 52, 0.5);
-  color: rgb(178, 178, 178);
-  margin-top: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: all .5s ease ;
-}
-
-button:hover {
-  background-color: rgba(62, 62, 62, 0.5);
-  color: rgb(214, 214, 214);
-} */
