@@ -18,14 +18,14 @@ const App = () => {
       <div className="px-10 py-10 flex items-center justify-center flex-col">
         <button
           onClick={getData}
-          className='text-xl font-bold bg-gradient-to-r from-red-200 to-red-500 hover:bg-gradient-to-l shadow rounded px-6 py-3 active:scale-80 text-black'>
+          className='text-xl font-medium bg-gradient-to-t from-blue-300 to-indigo-600 rounded px-6 py-3 active:scale-90 text-white transition-transform duration-150'>
           Get Data
         </button>
-        <div className="mt-5 p-5 py-7 rounded w-full flex items-center justify-evenly gap-6 flex-wrap">
+        <div className="mt-5 p-5 py-7 rounded w-full flex items-center justify-evenly gap-x-2 gap-y-12 flex-wrap">
           {data.map(function (elem, idx) {
-            return <div key={idx} className="bg-gradient-to-l from-red-200 to-red-500 p-1 rounded animate-fadeIn shadow">
-              <p className='px-2 absolute z-20 text-white'>{parseInt(elem.id) + 1}</p>
-              <img className='w-80 h-52 rounded' src={elem.download_url} alt="" />
+            return <div key={idx} className="bg-gradient-to-t from-blue-300 to-indigo-600 p-1 rounded animate-fadeIn shadow">
+              <p className='bg-gradient-to-br from-blue-300 to-indigo-600 h-7 w-10 -translate-x-5 -translate-y-4 rounded-full absolute z-20 flex items-center justify-center text-white'>{parseInt(elem.id) + 1}</p>
+              <img className='w-80 h-52 rounded' src={elem.download_url} alt="ImgNA" />
               <p className='pt-1 text-center text-black font-medium'>{elem.author}</p>
             </div>
           })}
