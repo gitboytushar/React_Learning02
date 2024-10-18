@@ -1,64 +1,36 @@
-import React from 'react'
-import Header from './components/Header'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Card from './components/Card'
-import Ex from './components/Ex'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 const App = () => {
 
-  // sample data made from gpt
-  const user = [
-    {
-      "name": "John Doe",
-      "city": "New York",
-      "age": 28,
-      "profession": "Software Engineer",
-      "profilephoto": "https://avatar.iran.liara.run/public/48"
-    },
-    {
-      "name": "Emma Smith",
-      "city": "San Francisco",
-      "age": 32,
-      "profession": "Graphic Designer",
-      "profilephoto": "https://avatar.iran.liara.run/public/5"
-    },
-    {
-      "name": "Liam Johnson",
-      "city": "Chicago",
-      "age": 40,
-      "profession": "Marketing Manager",
-      "profilephoto": "https://avatar.iran.liara.run/public/13"
-    },
-    {
-      "name": "Sophia Williams",
-      "city": "Los Angeles",
-      "age": 25,
-      "profession": "Data Scientist",
-      "profilephoto": "https://avatar.iran.liara.run/public/34"
-    },
-    {
-      "name": "James Brown",
-      "city": "Miami",
-      "age": 35,
-      "profession": "Financial Analyst",
-      "profilephoto": "https://avatar.iran.liara.run/public/38"
-    }
-  ]
+  // create a list of data
+  const [data, setData] = useState([])
+
+  // getting data from lorem picsum api provider
+  const getData = async () => {
+    const response = await axios.get('https://picsum.photos/v2/list?page=1&limit=40')
+    setData(response.data)
+  }
 
   return (
     <>
-      {/* <Header /> */}
-      <Navbar />
-      {/* <Ex ex_name="tushar verma" /> */}
-
-      <div className=" mt-32 absolute left-52 top-20">
-        {user.map(function (elem, idx) {
-          return <Card key={idx} username={elem.name} age={elem.age} prof={elem.profession} city={elem.city} photo={elem.profilephoto} />
-        })}
+      {/* showing data with custom designs with tailwind */}
+      <div className="px-10 py-10 flex items-center justify-center flex-col">
+        <button
+          onClick={getData}
+          className='text-xl font-bold bg-gradient-to-r from-red-200 to-red-500 hover:bg-gradient-to-l shadow rounded px-6 py-3 active:scale-80 text-black'>
+          Get Data
+        </button>
+        <div className="mt-5 p-5 py-7 rounded w-full flex items-center justify-evenly gap-6 flex-wrap">
+          {data.map(function (elem, idx) {
+            return <div key={idx} className="bg-gradient-to-l from-red-200 to-red-500 p-1 rounded animate-fadeIn shadow">
+              <p className='px-2 absolute z-20 text-white'>{parseInt(elem.id) + 1}</p>
+              <img className='w-80 h-52 rounded' src={elem.download_url} alt="" />
+              <p className='pt-1 text-center text-black font-medium'>{elem.author}</p>
+            </div>
+          })}
+        </div>
       </div>
-
-      <Footer />
     </>
   )
 }
