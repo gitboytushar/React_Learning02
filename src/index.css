@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 body {
   background-color: black;
-  /* color: #fff; */
+  color: #fff;
+  margin: 50px;
+}
+
+h1 {
+  font-size: 40px;
+  color: aquamarine;
 }

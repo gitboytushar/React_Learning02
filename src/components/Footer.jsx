@@ -1,11 +1,14 @@
-import React from 'react'
-import Subfooter from './Subfooter'
+import React, { useContext } from 'react'
+import { DataContext } from '../context/UserContext' // Important step: I fix this as a bug to show my data on browser
 
 const Footer = () => {
+
+    const data = useContext(DataContext)
+
     return (
-        <div className='bg-slate-800 w-full flex flex-col gap-y-2 items-center justify-center p-5 absolute bottom-0 text-white'>
-            All rights reserved. Copyright Tushar verma.
-            <Subfooter />
+        <div>
+            <h1>Footer component</h1>
+            <p>We are Inside footer, {data.username} lives in {data.city}</p>
         </div>
     )
 }

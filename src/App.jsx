@@ -1,33 +1,29 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Services from './pages/Services'
-import Home from './pages/Home'
-import Account from './pages/Account'
-import Navbar from './components/Navbar'
+import React, { useContext } from 'react'
+import Header from './components/Header'
+import Section from './components/Section'
 import Footer from './components/Footer'
+import { DataContext } from './context/UserContext'
 
 const App = () => {
+
+  // get data from the UserContext's Context that we've created and exported
+  const data = useContext(DataContext)
+  // console.log(data); // should prints the username
+
   return (
-    <div>
-      {/* Add the navbar that will be shown on all pages */}
-      <Navbar />
-
-      {/* Add different pages links here */}
-      <div>
-        {/* Below is the container for all routes */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/account' element={<Account />} />
-        </Routes>
-      </div>
-
-      {/* Add footer to app bottom */}
+    <div className='flex flex-col gap-10 text-center'>
+      {/* Now we can show that data here or within any other component like this */}
+      <h1>Hello I am <span className='text-white text-6xl'>{data.username}</span></h1>
+      <hr />
+      <h1 className='text-7xl'>We are On App.jsx Page</h1>
+      <h2 className='text-5xl'>Learning {data.Learning} for web development </h2>
+      <hr />
+      <Header />
+      <hr />
+      <Section />
+      <hr />
       <Footer />
+
     </div>
   )
 }
