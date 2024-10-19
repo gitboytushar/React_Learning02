@@ -4,8 +4,9 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
 import Home from './pages/Home'
-import Navbar from './components/Navbar'
 import Account from './pages/Account'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -13,8 +14,8 @@ const App = () => {
       {/* Add the navbar that will be shown on all pages */}
       <Navbar />
 
-      {/* Add different pages here */}
-      <div className='text-white text-5xl flex items-center justify-center mt-52'>
+      {/* Add different pages links here */}
+      <div>
         {/* Below is the container for all routes */}
         <Routes>
           <Route path='/' element={<Home />} />
@@ -25,6 +26,8 @@ const App = () => {
         </Routes>
       </div>
 
+      {/* Add footer to app bottom */}
+      <Footer />
     </div>
   )
 }
